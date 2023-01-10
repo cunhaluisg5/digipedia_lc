@@ -11,7 +11,7 @@ const Home = () => {
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [contador, setContador] = useState(0);
     const [paginaMaxima, setPaginaMaxima] = useState(0);
-    const itensPorPagina = 10;
+    const itensPorPagina =2;
 
     useEffect(() => {
         const carregaDigimon = async () => {
@@ -46,7 +46,7 @@ const Home = () => {
     }
 
     const renderLista = () => {
-        return <Box p='5'>
+        return <Box className='box' p='5'>
             <Pagination
                 count={contador}
                 size='large'
@@ -54,16 +54,15 @@ const Home = () => {
                 variant='outlined'
                 shape='rounded'
                 onChange={handleChange}
+                className='pagina'
             />
-            <List p='10' pt='3' spacing={2}>
+            <List className='lista'>
                 {listaAtual().map((digimon, index) => {
                     return (
-                        <ListItem key={index} listStyleType='disc'>
-                            <span>{digimon.name}</span>
-                            <Divider display='inline' orientation='vertical' />
-                            <span> {digimon.level}</span>
-                            <Divider display='inline' orientation='vertical' />
-                            <img src={digimon.img} alt={digimon.img} />
+                        <ListItem className='item' key={index}>
+                            <span className='nomeDigimon'>{digimon.name}</span>
+                            <img className='imagemDigimon' src={digimon.img} alt={digimon.img} />
+                            <span className='tipoDigimon'>{digimon.level}</span>
                         </ListItem>
                     );
                 })}
@@ -75,6 +74,7 @@ const Home = () => {
                 variant='outlined'
                 shape='rounded'
                 onChange={handleChange}
+                className='pagina'
             />
         </Box>
     }
