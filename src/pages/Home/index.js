@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Box, List, ListItem, Divider } from '@chakra-ui/core';
+import { Box, List, ListItem } from '@chakra-ui/core';
 import { Pagination } from '@material-ui/lab';
 
 import './home.css';
 import api from '../../services/api';
+import Header from '../../components/Header'
 
 const Home = () => {
     const [listaDigimon, setListaDigimon] = useState([]);
@@ -81,7 +82,7 @@ const Home = () => {
 
     return (
         <div className='container'>
-            <h1>Página Home</h1>
+            <Header titulo='DIGIPÉDIA'/>
             {listaDigimon.length > 0 && renderLista()}
         </div>
     )

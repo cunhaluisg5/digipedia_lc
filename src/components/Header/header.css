@@ -1,0 +1,21 @@
+.header{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    -webkit-box-shadow: 1px 7px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow:    1px 7px 5px rgba(50, 50, 50, 0.77);
+    box-shadow:         1px 7px 5px rgba(50, 50, 50, 0.77);
+    background: rgb(36,0,11);
+    background: linear-gradient(90deg, rgba(36,0,11,1) 0%, rgba(210,105,30,1) 35%, rgba(255,247,0,1) 100%);
+}
+
+.tituloCabecalho{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.imagemDigivice{
+    width: 50px;
+    margin-left: 10px;
+}
