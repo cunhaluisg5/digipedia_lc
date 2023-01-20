@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, List, ListItem } from '@chakra-ui/core';
 import { Pagination } from '@material-ui/lab';
+import ActivityIndicator from 'react-activity-indicator'
 
 import './home.css';
 import api from '../../services/api';
@@ -12,10 +13,12 @@ const Home = () => {
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [contador, setContador] = useState(0);
     const [paginaMaxima, setPaginaMaxima] = useState(0);
-    const itensPorPagina =2;
+    const [loaded, setLoaded] = useState(false);
+    const itensPorPagina = 2;
 
     useEffect(() => {
         const carregaDigimon = async () => {
+            setLoaded(true);
             await api.get('/')
                 .then((res) => {
                     const lista = res.data;
@@ -26,6 +29,7 @@ const Home = () => {
                 .catch((error) => {
                     console.log('Erro ao buscar digimon: ', error);
                 });
+            setLoaded(false);
         }
         carregaDigimon();
     }, []);
@@ -80,9 +84,20 @@ const Home = () => {
         </Box>
     }
 
+    const loader = () => {
+        if (loaded) {
+            return (<div className='loader' style={{ textAlign: 'center' }}>
+                <ActivityIndicator className='activity-indicator' number={3} duration={100} activeColor="#0070bf" borderWidth={2} 
+                    borderRadius="50%" diameter={25} />
+            </div>)
+        }
+    }
+
+
     return (
         <div className='container'>
-            <Header titulo='DIGIPÉDIA'/>
+            {loader()}
+            {listaDigimon.length > 0 && <Header titulo='DIGIPÉDIA' />}
             {listaDigimon.length > 0 && renderLista()}
         </div>
     )
