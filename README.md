@@ -18,7 +18,7 @@ A aplicação foi desenvolvida com base na API (Digimon API) [digimon-api](https
 
 ## Sobre
 
-A aplicação foi desenvolvida em [React Native](https://facebook.github.io/react-native/) utilizando o [Visual Studio Code](https://code.visualstudio.com/).
+A aplicação foi desenvolvida em [React](https://pt-br.reactjs.org/) utilizando o [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Dependências Utilizadas
 
